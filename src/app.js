@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'hbs') // setup handlebars engine
 
@@ -89,6 +90,6 @@ app.get('*', (req, res) => { // needs to come last, matches all routes
   })
 })
 
-app.listen(3000, () => { // pokrece server na port 3000
-  console.log('Server is up on port 3000')
+app.listen(port, () => { // pokrece server na port 3000
+  console.log(`Server is up on port ${port}`)
 }) 
