@@ -7,11 +7,12 @@ weatherForm.addEventListener('submit', (e) => {
   e.preventDefault() // prevent form from refreshing the browser after submit
   const location = search.value
   message1.textContent = 'Loading...'
+  message2.textContent = ''
   fetch(`/weather?address=${location}`).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         message1.textContent = data.error
-        message1.textContent = ''
+        message2.textContent = ''
         return
       }
       message1.textContent = data.location
